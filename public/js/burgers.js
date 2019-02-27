@@ -1,5 +1,5 @@
 $(function() {
-    $(".change-devour").on("click", function(event) {
+    $(".change-burger").on("click", function(event) {
       var id = $(this).data("id");
       var newDevour = $(this).data("newdevour");
   
@@ -23,10 +23,11 @@ $(function() {
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
+      console.log($("#burger").val().trim())
   
       var newBurger = {
         burger_name: $("#burger").val().trim(),
-        devoured: $("[name=devoured]:checked").val().trim()
+        devoured: false
       };
   
       // Send the POST request.
