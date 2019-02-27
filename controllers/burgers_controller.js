@@ -1,5 +1,5 @@
 var express = require("express");
-var path = require('path');
+
 var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
@@ -12,12 +12,11 @@ router.get("/", function(req, res) {
       burgers: data
     };
     console.log(hbsObject);
-    res.render("index", {burgers: data});
+    res.render("index", hbsObject);
   });
 });
 
-
-router.post("/api/burgers", function(req, res) {
+router.post("/api/burgerss", function(req, res) {
   burger.create([
     "burger_name", "devoured"
   ], [
@@ -45,6 +44,18 @@ router.put("/api/burgers/:id", function(req, res) {
   });
 });
 
+router.delete("/api/cats/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  burger.delete(condition, function(result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
 
 // Export routes for server.js to use.
 module.exports = router;
