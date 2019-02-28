@@ -1,42 +1,5 @@
 
-{{!-- <h1>Burgers</h1>
 
-<h2>Eat-Da-Burger</h2>
-
-<ul>
-  {{#each burgers}}
-     {{#if devoured}}
-      {{> burgers/burger-block devoured=0}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Burgers Devoured</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=1}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="burger_name">
-  </div>
-
-  <div class="form-group">
-    <label for="devoured">Eaten</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="burger_name" value="0"> Burgers
-  </div>
-
-  <button type="submit">Add burger</button>
-</form> --}}
 <div class = "container" style="background-image:url('https://lamitak.com/wp-content/uploads/2016/05/Tangerine_thumbnail-330x200.jpg')">
   <div class = "row">
     <div class="col-md-4">
@@ -54,9 +17,9 @@
       <h2>Add a Burger</h2>
       <form class="create-form">
 
-        <div class="form-group">
+        <div class="form-group"action="/" method="POST">
           <label for="burger">Burger Name:</label>
-          <input type="text" id="burger" name="name">
+          <input type="text" id="burger" name="burger_name" >
         </div>
 
         <button type="submit">Add burger</button>
